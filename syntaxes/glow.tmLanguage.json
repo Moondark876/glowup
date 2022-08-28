@@ -1,0 +1,48 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "MoonGlow",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#comments"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.glow",
+				"match": "\\b(return|if|else|out|func|var|and|or|for|while)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.glow",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.glow",
+					"match": "\\\\."
+				}
+			]
+		},
+		"comments": {
+			"name":"comment",
+			"patterns": [
+				{
+					"name": "comment.line.double-dash",
+					"match": "--.*"
+				},
+				{
+					"name":"comment.block",
+					"match": "-/[\\S\\s]*?(?:/-)"
+				}
+			]
+		}
+	},
+	"scopeName": "source.glow"
+}
